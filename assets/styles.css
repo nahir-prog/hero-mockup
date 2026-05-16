@@ -307,9 +307,9 @@ section {
   margin-top: 6px;
 }
 
-/* Hero image — clip-path reveal + interactive tilt + glow */
+/* Hero image — clip-path reveal från höger till vänster + mjuk hover-glow (ingen tilt) */
 .home-hero-image-wrap {
-  perspective: 1200px;
+  position: relative;
 }
 .home-hero-image {
   position: relative;
@@ -317,10 +317,7 @@ section {
   overflow: hidden;
   aspect-ratio: 4 / 5;
   background: rgba(91, 109, 250, 0.08);
-  transform-style: preserve-3d;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: heroFloat 6s ease-in-out infinite;
-  will-change: transform;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .home-hero-image img {
   width: 100%;
@@ -329,29 +326,36 @@ section {
   position: relative;
   z-index: 1;
 }
+/* Mjuk pulsande glow runt bilden — alltid synlig, intensifieras vid hover */
 .hero-image-glow {
   position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
-    rgba(162, 89, 236, 0.35), rgba(91, 109, 250, 0.15) 40%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(162, 89, 236, 0.30), rgba(91, 109, 250, 0.18) 40%, transparent 70%);
+  opacity: 0.5;
   z-index: 0;
-  filter: blur(20px);
+  filter: blur(40px);
   pointer-events: none;
+  transition: opacity 0.4s ease;
+  animation: glowPulse 4s ease-in-out infinite;
 }
 .home-hero-image:hover .hero-image-glow { opacity: 1; }
+.home-hero-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 80px rgba(91, 109, 250, 0.25);
+}
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
 
 .clip-reveal {
-  animation: clipReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards, heroFloat 6s ease-in-out 1.2s infinite;
+  animation: clipReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 }
 @keyframes clipReveal {
   to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-}
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
 }
 
 @media (max-width: 800px) {
@@ -405,14 +409,32 @@ section {
 
 /* ── LÖSNINGEN — Spotlight Glow Cards ──────────────────────── */
 .home-solution { text-align: center; }
-.home-solution-intro { max-width: 680px; margin: 0 auto 56px; }
-.home-solution-intro h2 { margin-bottom: 14px; }
+.home-solution-intro { max-width: 720px; margin: 0 auto 56px; }
+.home-solution-intro h2 { margin-bottom: 18px; }
 .home-solution-intro p { color: var(--ink-2); font-size: 16px; line-height: 1.7; }
+.solution-lede {
+  font-size: 20px !important;
+  color: var(--ink) !important;
+  margin-bottom: 14px !important;
+  letter-spacing: -0.01em;
+}
+.solution-lede strong {
+  background: linear-gradient(90deg, var(--p1), var(--p2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+.home-solution-intro em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--ink);
+}
 
 .superpowers-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 22px;
 }
 
 /* Spotlight glow card — cursor-tracked radial gradient */
@@ -441,11 +463,12 @@ section {
     rgba(26, 31, 46, 0.7);
   background-attachment: fixed, local;
   border: var(--border-size) solid rgba(255, 255, 255, 0.06);
-  padding: 30px 22px 26px;
+  padding: 36px 26px 32px;
   text-align: left;
   backdrop-filter: blur(8px);
   overflow: visible;
   transition: transform 0.25s ease;
+  min-height: 380px;
 }
 .glow-card::before,
 .glow-card::after {
@@ -501,23 +524,20 @@ section {
   gap: 16px;
 }
 .glow-inner img {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: contain;
-  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.5));
   transition: transform 0.3s ease;
 }
-.glow-card:hover .glow-inner img { transform: scale(1.05); }
+.glow-card:hover .glow-inner img { transform: scale(1.06); }
 .glow-inner h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   margin: 0;
-}
-.glow-inner p {
-  font-size: 13.5px;
-  color: var(--ink-3);
-  line-height: 1.55;
-  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 @media (max-width: 900px) { .superpowers-grid { grid-template-columns: 1fr 1fr; } }
@@ -537,6 +557,21 @@ section {
   padding: 28px 24px;
   text-align: left;
   backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: default;
+}
+.how-step:hover {
+  transform: translateY(-6px);
+  border-color: rgba(162, 89, 236, 0.5);
+  background: rgba(35, 42, 59, 0.7);
+  box-shadow: 0 14px 40px rgba(91, 109, 250, 0.18), 0 0 0 1px rgba(162, 89, 236, 0.25);
+}
+.how-step:hover .how-step-num {
+  transform: scale(1.06);
+  filter: drop-shadow(0 4px 14px rgba(162, 89, 236, 0.3));
+}
+.how-step-num {
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 .how-step-num {
   font-size: 56px;

@@ -37,37 +37,7 @@
     });
   });
 
-  // ── HERO IMAGE — 3D-tilt + glow follow ─────────────────────
-  document.addEventListener('DOMContentLoaded', function () {
-    var heroImg = document.querySelector('[data-tilt]');
-    if (!heroImg) return;
-    var glow = heroImg.querySelector('.hero-image-glow');
-
-    heroImg.addEventListener('pointermove', function (e) {
-      var rect = heroImg.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var y = e.clientY - rect.top;
-      var cx = rect.width / 2;
-      var cy = rect.height / 2;
-      // Tilt max 6° i vardera riktning, dämpat
-      var rx = ((cy - y) / cy) * 6;
-      var ry = ((x - cx) / cx) * 6;
-      heroImg.style.transform = 'perspective(1200px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
-      // Pausa float-animation under hover
-      heroImg.style.animation = 'none';
-      // Glow följer cursorn
-      if (glow) {
-        glow.style.setProperty('--mx', ((x / rect.width) * 100).toFixed(0) + '%');
-        glow.style.setProperty('--my', ((y / rect.height) * 100).toFixed(0) + '%');
-      }
-    });
-
-    heroImg.addEventListener('pointerleave', function () {
-      heroImg.style.transform = '';
-      // Återstarta float-animationen
-      heroImg.style.animation = '';
-    });
-  });
+  // Mouse-tilt borttagen i v3 — det laggade. Hover-glow sköts nu av ren CSS.
 
   // ── SHUFFLE TESTIMONIAL CARDS ───────────────────────────────
   // Klicka eller dra första kortet vänster för att blanda
