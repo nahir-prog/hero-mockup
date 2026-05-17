@@ -78,7 +78,14 @@
     <div class="home-hero-image-wrap">
       <div class="home-hero-image clip-reveal">
         <div class="hero-image-glow" aria-hidden="true"></div>
-        <img src="assets/images/pojken-mask2.png" alt="Elev i BE THE HERO-mask redo att stå upp för andra">
+        <iframe
+          class="hero-video"
+          src="https://heroofthetalk.cdn.spotlightr.com/publish/MTk4MDEyMQ==?autoplay=true&muted=true&loop=true&controls=false&fallback=true"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          title="BE THE HERO i klassrummet">
+        </iframe>
       </div>
     </div>
   </div>
@@ -124,40 +131,145 @@
       </div>
     </div>
 
-    <!-- Material — visa vad de får -->
+    <!-- Material — tabs istället för grid -->
     <div class="material-subhead">
       <h3>Tryckt material som <span class="gradient-text">lever i klassrummet</span>.</h3>
       <p>Kort, affischer och klistermärken som återanvänds varje läsår.</p>
     </div>
-    <div class="material-grid">
-      <a href="https://www.heroofthetalk.se/bli-en-heroskola/" class="material-card">
-        <div class="material-card-img">
-          <img src="https://www.heroofthetalk.se/wp-content/uploads/2026/05/Skarmavbild-2026-05-14-kl.-23.08.08.png" alt="18 HERO-kort">
+    <div class="material-tabs">
+      <div class="tab-buttons" role="tablist">
+        <button class="tab-btn active" data-tab="0" role="tab" aria-selected="true">18 HERO-kort</button>
+        <button class="tab-btn" data-tab="1" role="tab" aria-selected="false">Komplett HERO BOX</button>
+        <button class="tab-btn" data-tab="2" role="tab" aria-selected="false">Affisch &amp; klistermärken</button>
+      </div>
+      <div class="tab-panels">
+        <div class="tab-panel active" data-tab="0" role="tabpanel">
+          <div class="tab-image">
+            <img src="https://www.heroofthetalk.se/wp-content/uploads/2026/05/Skarmavbild-2026-05-14-kl.-23.08.08.png" alt="18 HERO-kort">
+          </div>
+          <div class="tab-text">
+            <h4>18 illustrerade HERO-kort</h4>
+            <p>Ger klassen ett gemensamt språk för roller, känslor och beteenden — från lågstadiet till högstadiet.</p>
+            <ul class="tab-bullets">
+              <li><strong>7 roller:</strong> Hero, Utsatt, Vuxna, Åskådare, Passiv mobbare, Medmobbare, Mobbare</li>
+              <li><strong>4 typer av mobbning:</strong> Verbal, Fysisk, Psykisk, Nätmobbning</li>
+              <li><strong>4 superkrafter:</strong> Uppmärksam, Modig, Godhjärtad, Rättvis</li>
+              <li><strong>3 begrepp:</strong> Konflikt, Kränkning, Mobbning</li>
+            </ul>
+            <a href="https://www.heroofthetalk.se/bli-en-heroskola/" class="tab-link">Se hela kortsetet →</a>
+          </div>
         </div>
-        <div class="material-card-text">
-          <h4>18 HERO-kort</h4>
-          <p>Gemensamt språk för roller, känslor och beteenden — F-9.</p>
+        <div class="tab-panel" data-tab="1" role="tabpanel" hidden>
+          <div class="tab-image">
+            <img src="https://www.heroofthetalk.se/wp-content/uploads/2026/04/DSCF3536-3-scaled.jpg" alt="HERO BOX">
+          </div>
+          <div class="tab-text">
+            <h4>Komplett HERO BOX</h4>
+            <p>Allt skolan behöver första året — kort, lärarmaterial, guides och stöd för att rulla ut programmet.</p>
+            <ul class="tab-bullets">
+              <li><strong>990 kr per box</strong> — täcker 2 klasser</li>
+              <li><strong>Levereras 3-5 arbetsdagar</strong> efter beställning</li>
+              <li><strong>Återanvänds varje läsår</strong> — ingen ny kostnad efter år 1</li>
+              <li><strong>Engångsbeställning</strong> — ingen prenumeration på fysiskt material</li>
+            </ul>
+            <a href="https://www.heroofthetalk.se/bli-en-heroskola/" class="tab-link">Beräkna pris för er skola →</a>
+          </div>
         </div>
-      </a>
-      <a href="https://www.heroofthetalk.se/bli-en-heroskola/" class="material-card">
-        <div class="material-card-img">
-          <img src="https://www.heroofthetalk.se/wp-content/uploads/2026/04/DSCF3536-3-scaled.jpg" alt="HERO BOX">
+        <div class="tab-panel" data-tab="2" role="tabpanel" hidden>
+          <div class="tab-image">
+            <img src="https://www.heroofthetalk.se/wp-content/uploads/2026/05/affischen20240910-01-scaled.jpg" alt="Klassens affisch och klistermärken">
+          </div>
+          <div class="tab-text">
+            <h4>Klassens resa — affisch &amp; klistermärken</h4>
+            <p>För lågstadiet (F-3). Klassen fyller på affischen med klistermärken — ett uppdrag i taget. Visuell motivation som lever på väggen.</p>
+            <ul class="tab-bullets">
+              <li><strong>1 affisch per klass</strong> — hängs upp i klassrummet</li>
+              <li><strong>Klistermärken till varje superkraft</strong> och milstolpe</li>
+              <li><strong>Gör programmets framgångar synliga</strong> hela läsåret</li>
+              <li><strong>Bygger gemenskap</strong> och stolthet i klassen</li>
+            </ul>
+            <a href="https://www.heroofthetalk.se/bli-en-heroskola/" class="tab-link">Lär mer om lågstadiet →</a>
+          </div>
         </div>
-        <div class="material-card-text">
-          <h4>HERO BOX</h4>
-          <p>Komplett startpaket med alla kort och lärarmaterial.</p>
-        </div>
-      </a>
-      <a href="https://www.heroofthetalk.se/bli-en-heroskola/" class="material-card">
-        <div class="material-card-img">
-          <img src="https://www.heroofthetalk.se/wp-content/uploads/2026/05/affischen20240910-01-scaled.jpg" alt="Klassens affisch">
-        </div>
-        <div class="material-card-text">
-          <h4>Klassens affisch</h4>
-          <p>F-3 fyller på sin resa med klistermärken — ett uppdrag i taget.</p>
-        </div>
-      </a>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- SKOLOR — vertikal text-marquee med 31 skolor -->
+<section class="home-schools-marquee">
+  <div class="container">
+    <p class="schools-marquee-eyebrow">Skolor som tränat sina superkrafter</p>
+    <div class="schools-marquee-wrap">
+      <div class="schools-marquee-mask">
+        <div class="schools-track">
+          <div class="school-item">Montessoriskolan Globen <span class="school-city">— Alingsås</span></div>
+          <div class="school-item">Nygårdskolan <span class="school-city">— Borlänge</span></div>
+          <div class="school-item">Strandängsskolan F-9 <span class="school-city">— Båstad</span></div>
+          <div class="school-item">Gökstensskolan F-9 <span class="school-city">— Eskilstuna</span></div>
+          <div class="school-item">Nossebro skola F-6 <span class="school-city">— Essunga</span></div>
+          <div class="school-item">Bruksskolan <span class="school-city">— Flen</span></div>
+          <div class="school-item">Frejaskolan F-9 <span class="school-city">— Gnesta</span></div>
+          <div class="school-item">Innovitaskolan Rudan <span class="school-city">— Haninge</span></div>
+          <div class="school-item">Nyhamnsskolan <span class="school-city">— Höganäs</span></div>
+          <div class="school-item">Kalmarsundsskolan <span class="school-city">— Kalmar</span></div>
+          <div class="school-item">Bodestorpsskolan <span class="school-city">— Karlshamn</span></div>
+          <div class="school-item">Valla skola <span class="school-city">— Katrineholm</span></div>
+          <div class="school-item">Aspen Montessori <span class="school-city">— Lerum</span></div>
+          <div class="school-item">Skansenskolan <span class="school-city">— Mörbylånga</span></div>
+          <div class="school-item">Bergsjö skola F-9 <span class="school-city">— Nordanstig</span></div>
+          <div class="school-item">Prolympia Norrköping <span class="school-city">— Norrköping</span></div>
+          <div class="school-item">Östra Skolan <span class="school-city">— Nyköping</span></div>
+          <div class="school-item">Turingeskolan <span class="school-city">— Nykvarn</span></div>
+          <div class="school-item">Ramdalsskolan <span class="school-city">— Oxelösund</span></div>
+          <div class="school-item">Norrmalmskolan <span class="school-city">— Piteå</span></div>
+          <div class="school-item">Jernvallsskolan <span class="school-city">— Sandviken</span></div>
+          <div class="school-item">Östermalmsskolan <span class="school-city">— Stockholm</span></div>
+          <div class="school-item">Mariefreds skola <span class="school-city">— Strängnäs</span></div>
+          <div class="school-item">Vittra Östertälje <span class="school-city">— Södertälje</span></div>
+          <div class="school-item">Söråkers skola <span class="school-city">— Timrå</span></div>
+          <div class="school-item">Kunskapsskolan Uppsala <span class="school-city">— Uppsala</span></div>
+          <div class="school-item">Östregårdskolan <span class="school-city">— Växjö</span></div>
+          <div class="school-item">Ängelholms Montessoriskola <span class="school-city">— Ängelholm</span></div>
+          <div class="school-item">Nyvångs skola <span class="school-city">— Åstorp</span></div>
+          <div class="school-item">von Reisers skola <span class="school-city">— Örkelljunga</span></div>
+          <div class="school-item">Internationella Engelska Skolan <span class="school-city">— Östersund</span></div>
+          <!-- Duplicates för seamless loop -->
+          <div class="school-item" aria-hidden="true">Montessoriskolan Globen <span class="school-city">— Alingsås</span></div>
+          <div class="school-item" aria-hidden="true">Nygårdskolan <span class="school-city">— Borlänge</span></div>
+          <div class="school-item" aria-hidden="true">Strandängsskolan F-9 <span class="school-city">— Båstad</span></div>
+          <div class="school-item" aria-hidden="true">Gökstensskolan F-9 <span class="school-city">— Eskilstuna</span></div>
+          <div class="school-item" aria-hidden="true">Nossebro skola F-6 <span class="school-city">— Essunga</span></div>
+          <div class="school-item" aria-hidden="true">Bruksskolan <span class="school-city">— Flen</span></div>
+          <div class="school-item" aria-hidden="true">Frejaskolan F-9 <span class="school-city">— Gnesta</span></div>
+          <div class="school-item" aria-hidden="true">Innovitaskolan Rudan <span class="school-city">— Haninge</span></div>
+          <div class="school-item" aria-hidden="true">Nyhamnsskolan <span class="school-city">— Höganäs</span></div>
+          <div class="school-item" aria-hidden="true">Kalmarsundsskolan <span class="school-city">— Kalmar</span></div>
+          <div class="school-item" aria-hidden="true">Bodestorpsskolan <span class="school-city">— Karlshamn</span></div>
+          <div class="school-item" aria-hidden="true">Valla skola <span class="school-city">— Katrineholm</span></div>
+          <div class="school-item" aria-hidden="true">Aspen Montessori <span class="school-city">— Lerum</span></div>
+          <div class="school-item" aria-hidden="true">Skansenskolan <span class="school-city">— Mörbylånga</span></div>
+          <div class="school-item" aria-hidden="true">Bergsjö skola F-9 <span class="school-city">— Nordanstig</span></div>
+          <div class="school-item" aria-hidden="true">Prolympia Norrköping <span class="school-city">— Norrköping</span></div>
+          <div class="school-item" aria-hidden="true">Östra Skolan <span class="school-city">— Nyköping</span></div>
+          <div class="school-item" aria-hidden="true">Turingeskolan <span class="school-city">— Nykvarn</span></div>
+          <div class="school-item" aria-hidden="true">Ramdalsskolan <span class="school-city">— Oxelösund</span></div>
+          <div class="school-item" aria-hidden="true">Norrmalmskolan <span class="school-city">— Piteå</span></div>
+          <div class="school-item" aria-hidden="true">Jernvallsskolan <span class="school-city">— Sandviken</span></div>
+          <div class="school-item" aria-hidden="true">Östermalmsskolan <span class="school-city">— Stockholm</span></div>
+          <div class="school-item" aria-hidden="true">Mariefreds skola <span class="school-city">— Strängnäs</span></div>
+          <div class="school-item" aria-hidden="true">Vittra Östertälje <span class="school-city">— Södertälje</span></div>
+          <div class="school-item" aria-hidden="true">Söråkers skola <span class="school-city">— Timrå</span></div>
+          <div class="school-item" aria-hidden="true">Kunskapsskolan Uppsala <span class="school-city">— Uppsala</span></div>
+          <div class="school-item" aria-hidden="true">Östregårdskolan <span class="school-city">— Växjö</span></div>
+          <div class="school-item" aria-hidden="true">Ängelholms Montessoriskola <span class="school-city">— Ängelholm</span></div>
+          <div class="school-item" aria-hidden="true">Nyvångs skola <span class="school-city">— Åstorp</span></div>
+          <div class="school-item" aria-hidden="true">von Reisers skola <span class="school-city">— Örkelljunga</span></div>
+          <div class="school-item" aria-hidden="true">Internationella Engelska Skolan <span class="school-city">— Östersund</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="schools-marquee-note">+ många fler — 150+ skolor i hela Sverige</p>
   </div>
 </section>
 

@@ -39,6 +39,36 @@
 
   // Mouse-tilt borttagen i v3 — det laggade. Hover-glow sköts nu av ren CSS.
 
+  // ── MATERIAL TABS ───────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function () {
+    var tabBtns = document.querySelectorAll('.material-tabs .tab-btn');
+    var tabPanels = document.querySelectorAll('.material-tabs .tab-panel');
+    if (!tabBtns.length) return;
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = this.getAttribute('data-tab');
+        // Uppdatera knappar
+        tabBtns.forEach(function (b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+        // Uppdatera paneler
+        tabPanels.forEach(function (p) {
+          if (p.getAttribute('data-tab') === target) {
+            p.classList.add('active');
+            p.removeAttribute('hidden');
+          } else {
+            p.classList.remove('active');
+            p.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  });
+
   // ── SHUFFLE TESTIMONIAL CARDS ───────────────────────────────
   // Klicka eller dra första kortet vänster för att blanda
   document.addEventListener('DOMContentLoaded', function () {

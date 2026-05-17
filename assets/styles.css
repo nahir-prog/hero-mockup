@@ -593,6 +593,222 @@ section {
 @media (max-width: 900px) { .superpowers-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .superpowers-grid { grid-template-columns: 1fr; } }
 
+/* ── HERO VIDEO — iframe fyller hero-image container ──────── */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  z-index: 1;
+}
+
+/* ── SKOLOR-MARQUEE — vertikal text-cykel ──────────────────── */
+.home-schools-marquee {
+  text-align: center;
+  padding: 56px 0;
+  background: linear-gradient(180deg, transparent, rgba(91, 109, 250, 0.04), transparent);
+}
+.schools-marquee-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+}
+.schools-marquee-wrap {
+  display: flex;
+  justify-content: center;
+}
+.schools-marquee-mask {
+  height: 64px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 35%, #000 65%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0, #000 35%, #000 65%, transparent 100%);
+}
+.schools-track {
+  display: flex;
+  flex-direction: column;
+  animation: schoolsCycle 62s linear infinite;
+  will-change: transform;
+}
+.schools-marquee-mask:hover .schools-track {
+  animation-play-state: paused;
+}
+.school-item {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, var(--p1), var(--p2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 0 16px;
+}
+.school-city {
+  background: linear-gradient(90deg, var(--ink-2), var(--ink-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 500;
+  margin-left: 4px;
+}
+@keyframes schoolsCycle {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.schools-marquee-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-3);
+  font-style: italic;
+}
+
+/* ── MATERIAL TABS — fliksystem istället för 3 kort ──────── */
+.material-tabs {
+  margin-top: 40px;
+}
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--bd-2);
+  padding: 0 20px;
+}
+.tab-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: var(--ink-3);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  color: var(--ink-2);
+}
+.tab-btn.active {
+  color: #fff;
+  font-weight: 600;
+}
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--p1), var(--p2));
+  border-radius: 2px;
+}
+.tab-panels {
+  position: relative;
+  min-height: 380px;
+}
+.tab-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  text-align: left;
+  animation: tabFadeIn 0.4s ease-out;
+}
+.tab-panel[hidden] { display: none; }
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tab-image {
+  border-radius: var(--rl);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--bd-2);
+}
+.tab-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+.tab-text h4 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.tab-text > p {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.tab-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.tab-bullets li {
+  position: relative;
+  padding: 8px 0 8px 26px;
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.tab-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  opacity: 0.9;
+}
+.tab-bullets li::after {
+  content: '✓';
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+.tab-bullets li strong { color: #fff; font-weight: 600; }
+.tab-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--p-light);
+  transition: color 0.15s ease;
+}
+.tab-link:hover { color: #fff; }
+
+@media (max-width: 800px) {
+  .tab-buttons { flex-wrap: wrap; }
+  .tab-btn { font-size: 13px; padding: 12px 14px; }
+  .tab-panel { grid-template-columns: 1fr; gap: 24px; }
+  .tab-image img { max-height: 280px; }
+}
+
 /* ── MATERIAL-SUBHEAD inom BE THE HERO-sektion ─────────────── */
 .material-subhead {
   text-align: center;
