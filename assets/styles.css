@@ -233,6 +233,59 @@ section {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ── CINEMATIC H1 — text-track + clip-reveal som filmtitel ─── */
+.cinematic-h1 {
+  perspective: 1000px;
+  margin: 0 0 0 0;
+}
+.cinematic-line-1,
+.cinematic-line-2 {
+  display: block;
+}
+/* "Mod att stå upp" — text-track: 3D fade upp, scala, blur clear */
+.cinematic-line-1 {
+  opacity: 0;
+  transform-origin: center;
+  animation: cinematicTrack 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+@keyframes cinematicTrack {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.85) rotateX(-20deg);
+    filter: blur(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+/* "för varandra" — clip-reveal från vänster till höger + glow */
+.cinematic-line-2 {
+  opacity: 1;
+}
+.cinematic-reveal {
+  display: inline-block;
+  clip-path: inset(0 100% -10% 0);
+  animation: cinematicReveal 1.4s cubic-bezier(0.77, 0, 0.175, 1) 1.0s forwards;
+  filter:
+    drop-shadow(0 10px 28px rgba(162, 89, 236, 0.45))
+    drop-shadow(0 3px 10px rgba(91, 109, 250, 0.30));
+  padding-bottom: 4px;
+}
+@keyframes cinematicReveal {
+  from { clip-path: inset(0 100% -10% 0); }
+  to   { clip-path: inset(0 0% -10% 0); }
+}
+.cinematic-dot {
+  display: inline-block;
+  opacity: 0;
+  animation: cinematicDot 0.6s ease-out 2.0s forwards;
+}
+@keyframes cinematicDot {
+  to { opacity: 1; }
+}
+
 /* ── Arvsfonden badge ──────────────────────────────────────── */
 .arvsfonden-badge {
   display: inline-flex;
@@ -542,6 +595,119 @@ section {
 
 @media (max-width: 900px) { .superpowers-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .superpowers-grid { grid-template-columns: 1fr; } }
+
+/* ── RESULTAT — siffror från riktiga skolor ────────────────── */
+.home-results {
+  text-align: center;
+  padding: 64px 0;
+  background: linear-gradient(180deg, transparent, rgba(91, 109, 250, 0.05), transparent);
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 920px;
+  margin: 0 auto 24px;
+  align-items: start;
+}
+.result-stat {
+  text-align: center;
+}
+.result-stat-number {
+  font-size: clamp(64px, 9vw, 100px);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 8px 24px rgba(162, 89, 236, 0.18));
+}
+.result-stat-percent {
+  font-size: 0.6em;
+  font-weight: 700;
+}
+.result-stat-text {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.65;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.result-stat-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+.results-source {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-style: italic;
+  margin-top: 16px;
+}
+@media (max-width: 700px) {
+  .results-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ── MATERIALET — produkt-visibility ────────────────────────── */
+.home-material { text-align: center; }
+.material-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 48px;
+}
+.material-card {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+.material-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(91, 109, 250, 0.5);
+  box-shadow: 0 14px 38px rgba(91, 109, 250, 0.22);
+}
+.material-card-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.material-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.material-card:hover .material-card-img img { transform: scale(1.05); }
+.material-card-text {
+  padding: 22px 24px 24px;
+  text-align: left;
+}
+.material-card-text h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #fff;
+}
+.material-card-text p {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .material-grid { grid-template-columns: 1fr; }
+  .material-card-img { height: 200px; }
+}
 
 /* ── SÅ FUNGERAR DET ───────────────────────────────────────── */
 .home-how-grid {
