@@ -596,6 +596,75 @@ section {
 @media (max-width: 900px) { .superpowers-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .superpowers-grid { grid-template-columns: 1fr; } }
 
+/* ── MATERIAL-SUBHEAD inom BE THE HERO-sektion ─────────────── */
+.material-subhead {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 36px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(91, 109, 250, 0.12);
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.material-subhead h3 {
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.material-subhead p {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+/* BE THE HERO-sektion (kombinerad) */
+.home-bethehero { text-align: center; }
+
+/* ── BEVIS-sektion (kombinerad stats + testimonials) ───────── */
+.home-proof { text-align: center; }
+.home-proof .results-grid {
+  margin-bottom: 80px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(91, 109, 250, 0.12);
+}
+.home-proof .shuffle-text h3 {
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.home-proof .shuffle-text {
+  text-align: left;
+}
+
+/* ── OM OSS slim ───────────────────────────────────────────── */
+.home-about-slim {
+  padding: 64px 0;
+  text-align: center;
+}
+.about-slim-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.about-slim-text {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.7;
+  margin: 16px 0 24px;
+}
+.about-slim-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+.about-slim-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
 /* ── RESULTAT — siffror från riktiga skolor ────────────────── */
 .home-results {
   text-align: center;
