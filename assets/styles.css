@@ -289,10 +289,16 @@ section {
 .cinematic-dot {
   display: inline-block;
   opacity: 0;
-  animation: cinematicDot 0.6s ease-out 2.0s forwards;
+  /* Match cinematic-reveal's padding-bottom så baseline blir likadan */
+  padding-bottom: 4px;
+  /* Lyft optiskt så period-tecknet sitter snyggt med gradient-texten */
+  transform: translateY(-2px);
+  vertical-align: baseline;
+  animation: cinematicDot 0.5s ease-out 2.2s forwards;
 }
 @keyframes cinematicDot {
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(-2px); }
 }
 
 /* ── Arvsfonden badge ──────────────────────────────────────── */
