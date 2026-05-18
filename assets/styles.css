@@ -286,19 +286,25 @@ section {
   from { clip-path: inset(0 100% -10% 0); }
   to   { clip-path: inset(0 0% -10% 0); }
 }
+/* Cinematic dot: explicit CSS-cirkel istället för period-tecken
+   (period sitter alltid på baseline-bottom, vilket orsakade glappet).
+   Vi döljer period-tecknet och ritar en gradient-cirkel ovanpå. */
 .cinematic-dot {
   display: inline-block;
+  width: 0.15em;
+  height: 0.15em;
+  margin-left: 0.06em;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  vertical-align: 0.05em; /* lyft så cirkeln sitter snyggt på baseline */
+  text-indent: -9999px; /* dölj period-tecknet */
+  overflow: hidden;
   opacity: 0;
-  /* Match cinematic-reveal's padding-bottom så baseline blir likadan */
-  padding-bottom: 4px;
-  /* Lyft optiskt så period-tecknet sitter snyggt med gradient-texten */
-  transform: translateY(-2px);
-  vertical-align: baseline;
   animation: cinematicDot 0.5s ease-out 2.2s forwards;
 }
 @keyframes cinematicDot {
-  from { opacity: 0; transform: translateY(0); }
-  to   { opacity: 1; transform: translateY(-2px); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ── Arvsfonden badge ──────────────────────────────────────── */
@@ -758,27 +764,28 @@ section {
   object-fit: cover;
   display: block;
 }
-/* Dual-image variant för affisch + klistermärken */
+/* Dual-image variant för affisch + klistermärken (sida vid sida) */
 .tab-image-dual {
   display: grid;
-  grid-template-rows: 1.6fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
-  align-content: start;
+  align-items: stretch;
 }
 .tab-image-dual-item {
   border-radius: var(--rl);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--bd-2);
-  padding: 12px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 340px;
 }
 .tab-image-dual-item img {
   width: 100%;
-  height: 100%;
-  max-height: 240px;
+  height: auto;
+  max-height: 320px;
   object-fit: contain;
   display: block;
 }
