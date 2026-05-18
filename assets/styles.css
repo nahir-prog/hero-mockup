@@ -286,25 +286,18 @@ section {
   from { clip-path: inset(0 100% -10% 0); }
   to   { clip-path: inset(0 0% -10% 0); }
 }
-/* Cinematic dot: explicit CSS-cirkel istället för period-tecken
-   (period sitter alltid på baseline-bottom, vilket orsakade glappet).
-   Vi döljer period-tecknet och ritar en gradient-cirkel ovanpå. */
+/* Cinematic dot: CSS-cirkel INNE i cinematic-reveal — clip-pathen
+   avslöjar dotten samtidigt som "för varandra" skrivs ut, så det
+   blir ingen separat fade-in. Period-tecknet är ersatt med en
+   gradient-cirkel via en tom span. */
 .cinematic-dot {
   display: inline-block;
-  width: 0.15em;
-  height: 0.15em;
+  width: 0.18em;
+  height: 0.18em;
   margin-left: 0.06em;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--p1), var(--p2));
-  vertical-align: 0.05em; /* lyft så cirkeln sitter snyggt på baseline */
-  text-indent: -9999px; /* dölj period-tecknet */
-  overflow: hidden;
-  opacity: 0;
-  animation: cinematicDot 0.5s ease-out 2.2s forwards;
-}
-@keyframes cinematicDot {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  vertical-align: 0.08em; /* lyft så cirkeln sitter snyggt på baseline */
 }
 
 /* ── Arvsfonden badge ──────────────────────────────────────── */
