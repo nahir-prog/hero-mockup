@@ -195,44 +195,115 @@
   margin: 0 auto 80px;
 }
 
-/* HERO-kort block — bild + text side-by-side */
-.hero-cards-block {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 40px;
-  align-items: center;
+/* Förhindra "änkor" (ensamt ord på sista raden) i hela sidan */
+body {
+  text-wrap: pretty;
+}
+
+/* ── FYSISKT MATERIAL — HERO BOX-block ────────────────────── */
+.material-block {
   max-width: 1200px;
   margin: 0 auto;
 }
-.hero-cards-image {
+.material-block-top {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 40px;
+  align-items: stretch;
+  margin-bottom: 48px;
+}
+.material-block-image {
   border-radius: var(--rl);
   overflow: hidden;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--bd-2);
-  aspect-ratio: 4 / 3;
+  max-height: 380px;
 }
-.hero-cards-image img {
+.material-block-image img {
   width: 100%;
   height: 100%;
+  max-height: 380px;
   object-fit: cover;
   display: block;
 }
-.hero-cards-text h3 {
+.material-block-text {
+  padding: 4px 0;
+}
+.material-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+}
+.material-block-text h3 {
   font-size: clamp(22px, 2.5vw, 28px);
   font-weight: 700;
   color: #fff;
   margin-bottom: 14px;
   letter-spacing: -0.01em;
 }
-.hero-cards-text > p {
+.material-block-text > p {
   font-size: 15px;
   line-height: 1.7;
   color: var(--ink-2);
   margin-bottom: 24px;
 }
+.material-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.material-col h5 {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.material-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.material-col li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  padding: 5px 0 5px 18px;
+  position: relative;
+}
+.material-col li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+}
+
+.material-cards-breakdown {
+  margin-top: 8px;
+}
+.material-cards-breakdown-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+}
 
 @media (max-width: 880px) {
-  .hero-cards-block { grid-template-columns: 1fr; gap: 24px; }
+  .material-block-top { grid-template-columns: 1fr; gap: 24px; }
+  .material-block-image { max-height: 280px; }
+  .material-cols { grid-template-columns: 1fr; gap: 18px; }
 }
 
 .card-categories {
