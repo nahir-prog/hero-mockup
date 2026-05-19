@@ -1,0 +1,505 @@
+/* ═══════════════════════════════════════════════════════════
+   PROGRAMMET.HTML — sidans egna styles
+   Bygger ovanpå styles.css. Använder samma variabler.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Active nav-länk i headern */
+.site-nav-active {
+  color: #fff !important;
+  font-weight: 600;
+}
+.site-nav-active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 4px;
+  background: linear-gradient(90deg, var(--p1), var(--p2));
+  border-radius: 2px;
+}
+
+/* ── 1. HERO ─────────────────────────────────────────────── */
+.program-hero {
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+}
+.program-hero-title {
+  font-size: clamp(36px, 5.5vw, 64px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 18px auto 24px;
+  max-width: 900px;
+  color: #fff;
+}
+.program-hero-lede {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+.program-hero-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Section intro — used för flera sektioner */
+.program-section-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.program-section-intro h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 16px 0 18px;
+  color: #fff;
+}
+.program-section-intro p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+/* ── 2. PHILOSOPHY ───────────────────────────────────────── */
+.program-philosophy {
+  padding: 90px 0;
+  position: relative;
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.philosophy-card {
+  background: linear-gradient(135deg, rgba(91, 109, 250, 0.06), rgba(162, 89, 236, 0.04));
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  padding: 32px 28px;
+}
+.philosophy-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.philosophy-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.philosophy-card-highlight {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(162, 89, 236, 0.14), rgba(91, 109, 250, 0.10));
+  border-color: rgba(162, 89, 236, 0.4);
+  padding: 40px 36px;
+  text-align: center;
+}
+.philosophy-card-highlight h3 {
+  font-size: 28px;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+.philosophy-card-highlight p {
+  font-size: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  .philosophy-grid { grid-template-columns: 1fr; }
+}
+
+/* ── 3. LEARNING ─────────────────────────────────────────── */
+.program-learning {
+  padding: 90px 0;
+}
+.learning-areas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 64px;
+}
+.learning-area {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  padding: 26px 18px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.learning-area:hover {
+  background: rgba(91, 109, 250, 0.08);
+  border-color: rgba(91, 109, 250, 0.3);
+  transform: translateY(-3px);
+}
+.learning-area-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 10px;
+}
+.learning-area h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.learning-subhead {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+.learning-subhead h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.learning-subhead p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.superpowers-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+.superpower-pill {
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: 1.5px solid var(--bd-2);
+  font-size: 16px;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.5);
+  color: #fff;
+}
+.superpower-pill[data-color="orange"] { border-color: rgba(247, 167, 86, 0.6); color: #f7a756; }
+.superpower-pill[data-color="blue"]   { border-color: rgba(91, 109, 250, 0.6); color: #8ea1ff; }
+.superpower-pill[data-color="red"]    { border-color: rgba(239, 95, 109, 0.6); color: #ff8593; }
+.superpower-pill[data-color="green"]  { border-color: rgba(29, 158, 117, 0.6); color: #6ee7b7; }
+
+.card-categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.card-category {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  padding: 24px 20px;
+  text-align: center;
+}
+.card-category-count {
+  display: block;
+  font-size: 38px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.card-category h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.card-category p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+@media (max-width: 900px) {
+  .learning-areas { grid-template-columns: repeat(2, 1fr); }
+  .card-categories { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .learning-areas { grid-template-columns: 1fr; }
+  .card-categories { grid-template-columns: 1fr; }
+}
+
+/* ── 4. HOW IT WORKS — 3 STEPS ────────────────────────────── */
+.program-how {
+  padding: 90px 0;
+  background: linear-gradient(180deg, transparent, rgba(91, 109, 250, 0.04), transparent);
+}
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.how-step {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  padding: 36px 28px;
+  position: relative;
+}
+.how-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.how-step h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.how-step p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+@media (max-width: 880px) {
+  .how-steps { grid-template-columns: 1fr; }
+}
+
+/* ── 5. STAGES ───────────────────────────────────────────── */
+.program-stages {
+  padding: 90px 0;
+}
+.stages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.stage-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.stage-card:hover {
+  transform: translateY(-4px);
+}
+.stage-card-image {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.stage-placeholder-label {
+  font-size: 56px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: -0.02em;
+}
+/* Färgkodning per stadium */
+.stage-placeholder-low {
+  background: linear-gradient(135deg, rgba(247, 167, 86, 0.4), rgba(255, 132, 95, 0.25));
+}
+.stage-placeholder-mid {
+  background: linear-gradient(135deg, rgba(91, 109, 250, 0.4), rgba(142, 161, 255, 0.25));
+}
+.stage-placeholder-high {
+  background: linear-gradient(135deg, rgba(162, 89, 236, 0.4), rgba(180, 130, 240, 0.25));
+}
+.stage-card-body {
+  padding: 24px 22px 28px;
+}
+.stage-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.stage-card[data-stage="low"]  .stage-label { color: #f7a756; }
+.stage-card[data-stage="mid"]  .stage-label { color: #8ea1ff; }
+.stage-card[data-stage="high"] .stage-label { color: #c8a3f5; }
+.stage-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.stage-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+@media (max-width: 880px) {
+  .stages-grid { grid-template-columns: 1fr; }
+}
+
+/* ── 6. PORTAL ───────────────────────────────────────────── */
+.program-portal {
+  padding: 90px 0;
+  background: linear-gradient(180deg, transparent, rgba(162, 89, 236, 0.04), transparent);
+}
+.portal-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto 48px;
+}
+.portal-feature {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.portal-feature:hover {
+  background: rgba(91, 109, 250, 0.06);
+  border-color: rgba(91, 109, 250, 0.3);
+}
+.portal-feature-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+.portal-feature h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.portal-feature p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.portal-feature-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  color: #fff;
+}
+
+.portal-screenshot-placeholder {
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px dashed var(--bd-2);
+  border-radius: var(--rl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  font-size: 13px;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .portal-features { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .portal-features { grid-template-columns: 1fr; }
+}
+
+/* ── 7. RESEARCH ─────────────────────────────────────────── */
+.program-research {
+  padding: 90px 0;
+}
+.research-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto 36px;
+}
+.research-stat {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  padding: 32px 26px;
+  text-align: center;
+}
+.research-stat-num {
+  font-size: 56px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+.research-stat-num span {
+  font-size: 0.5em;
+}
+.research-stat p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.research-more-link {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px;
+  transition: color 0.2s ease;
+}
+.research-more-link:hover {
+  background: linear-gradient(90deg, var(--p1), var(--p2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 880px) {
+  .research-stats { grid-template-columns: 1fr; }
+}
