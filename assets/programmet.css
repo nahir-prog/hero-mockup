@@ -195,12 +195,75 @@
   margin: 0 auto 80px;
 }
 
+/* HERO-kort block — bild + text side-by-side */
+.hero-cards-block {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-cards-image {
+  border-radius: var(--rl);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--bd-2);
+  aspect-ratio: 4 / 3;
+}
+.hero-cards-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-cards-text h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.hero-cards-text > p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 880px) {
+  .hero-cards-block { grid-template-columns: 1fr; gap: 24px; }
+}
+
 .card-categories {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   max-width: 1100px;
   margin: 0 auto;
+}
+/* Kompakt variant inuti HERO-cards-block, 2x2 grid */
+.card-categories-compact {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 0;
+}
+.card-categories-compact .card-category {
+  padding: 20px 16px;
+}
+.card-categories-compact .card-category-count {
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.card-categories-compact .card-category h4 {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.card-categories-compact .card-category p {
+  font-size: 12px;
+  line-height: 1.5;
 }
 .card-category {
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
