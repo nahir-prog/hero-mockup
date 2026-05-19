@@ -163,18 +163,18 @@
   background: linear-gradient(180deg, transparent, rgba(91, 109, 250, 0.03), transparent);
 }
 
-/* Slim Fritidshemmet-banner före CTA */
+/* Slim Fritidshemmet-banner före CTA — soft lila accent */
 .program-upcoming-section {
   padding: 24px 0 40px;
 }
 .upcoming-program-slim {
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(162, 89, 236, 0.08), rgba(91, 109, 250, 0.04));
+  border-color: rgba(162, 89, 236, 0.25);
 }
 .upcoming-program-slim .upcoming-program-badge {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-  color: var(--ink-2);
+  background: linear-gradient(135deg, rgba(162, 89, 236, 0.9), rgba(91, 109, 250, 0.8));
+  color: #fff;
 }
 
 /* ── 2. PHILOSOPHY ───────────────────────────────────────── */
@@ -317,11 +317,24 @@
   color: var(--ink-2);
 }
 
-/* Glow-cards för superkrafter på programmet-sidan — samma stil
-   som startsidan men kompaktare (4 i rad även på desktop) */
+/* Glow-cards för superkrafter på programmet-sidan — kompaktare än startsidan,
+   utan stor min-height (annars blir tom luft under bilden) */
 .superpowers-grid-program {
   max-width: 880px;
   margin: 0 auto 80px;
+}
+.superpowers-grid-program .glow-card {
+  min-height: 0;
+  padding: 24px 18px 22px;
+}
+.superpowers-grid-program .glow-inner {
+  gap: 12px;
+}
+.superpowers-grid-program .glow-inner img {
+  max-width: 160px;
+}
+.superpowers-grid-program .glow-inner h4 {
+  font-size: 17px;
 }
 
 /* Förhindra "änkor" (ensamt ord på sista raden) i hela sidan */
@@ -557,6 +570,8 @@ body {
   border-radius: 50%;
   background: linear-gradient(135deg, var(--p1), var(--p2));
   color: #fff;
+  /* Explicit text-fill för att övervinna eventuella gradient-text-arv */
+  -webkit-text-fill-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -789,7 +804,50 @@ body {
   .portal-features { grid-template-columns: 1fr; }
 }
 
-/* ── 7. RESEARCH ─────────────────────────────────────────── */
+/* ── 7. QUOTES — slim citat-rad ──────────────────────────── */
+.program-quotes {
+  padding: 56px 0;
+}
+.program-quotes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.program-quote {
+  background: linear-gradient(135deg, rgba(91, 109, 250, 0.04), rgba(162, 89, 236, 0.02));
+  border: 1px solid var(--bd-2);
+  border-radius: var(--rl);
+  padding: 26px 28px;
+  margin: 0;
+  position: relative;
+}
+.program-quote-stars {
+  font-size: 14px;
+  color: #f7c948;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.program-quote p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-1);
+  font-style: italic;
+  margin: 0 0 14px;
+}
+.program-quote cite {
+  font-size: 13px;
+  color: var(--ink-3);
+  font-style: normal;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 760px) {
+  .program-quotes-grid { grid-template-columns: 1fr; }
+}
+
+/* ── 8. RESEARCH ─────────────────────────────────────────── */
 .program-research {
   padding: 90px 0;
 }
