@@ -69,6 +69,51 @@
   border: 0;
 }
 
+/* Static placeholder (mockup-läge tills live-port) */
+.program-hero-video-frame-static {
+  display: block;
+}
+.program-hero-video-frame-static img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.program-hero-video-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(91, 109, 250, 0.5);
+}
+.program-hero-video-play svg {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  margin-left: 4px;
+}
+.program-hero-video-label {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
 @media (max-width: 980px) {
   .program-hero-inner { grid-template-columns: 1fr; gap: 36px; }
   .program-hero-text { text-align: center; }
