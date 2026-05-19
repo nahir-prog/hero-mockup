@@ -39,6 +39,31 @@
 
   // Mouse-tilt borttagen i v3 — det laggade. Hover-glow sköts nu av ren CSS.
 
+  // ── KLICK-FÖR-ATT-SPELA HERO-VIDEO ──────────────────────────
+  // Bilden ersätts med iframe vid klick. User-gesture gör autoplay tillåtet.
+  document.addEventListener('DOMContentLoaded', function () {
+    var videoFrames = document.querySelectorAll('.program-hero-video-frame[data-video-id]');
+    videoFrames.forEach(function (frame) {
+      frame.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (frame.dataset.loaded === '1') return;
+        var id = frame.getAttribute('data-video-id');
+        if (!id) return;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://heroofthetalk.cdn.spotlightr.com/publish/' + id + '?autoplay=true&controls=true';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+        // Töm overlay-elementen
+        frame.innerHTML = '';
+        frame.appendChild(iframe);
+        frame.dataset.loaded = '1';
+        frame.style.cursor = 'default';
+      });
+    });
+  });
+
   // ── MATERIAL TABS ───────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     var tabBtns = document.querySelectorAll('.material-tabs .tab-btn');
