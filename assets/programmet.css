@@ -53,65 +53,20 @@
 }
 .program-hero-video-frame {
   position: relative;
-  display: block;
   border-radius: var(--rl);
   overflow: hidden;
   border: 1px solid var(--bd-2);
   background: rgba(0, 0, 0, 0.4);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.program-hero-video-frame:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 30px 70px rgba(91, 109, 250, 0.3);
-}
-.program-hero-video-frame img {
+.program-hero-video-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: filter 0.25s ease;
-}
-.program-hero-video-frame:hover img { filter: brightness(0.75); }
-.program-hero-video-play {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--p1), var(--p2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 40px rgba(91, 109, 250, 0.5);
-  transition: transform 0.25s ease;
-}
-.program-hero-video-play svg {
-  width: 30px;
-  height: 30px;
-  color: #fff;
-  margin-left: 4px;
-}
-.program-hero-video-frame:hover .program-hero-video-play {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-.program-hero-video-label {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 6px 14px;
-  border-radius: 999px;
-  letter-spacing: 0.02em;
-  backdrop-filter: blur(8px);
-  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 980px) {
