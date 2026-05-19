@@ -286,20 +286,13 @@ section {
   from { clip-path: inset(0 100% -10% 0); }
   to   { clip-path: inset(0 0% -10% 0); }
 }
-/* Cinematic dot: ::after-pseudo direkt på cinematic-reveal.
-   Eftersom dotten är en del av samma element som har clip-path,
-   avslöjas den garanterat tillsammans med "för varandra"-texten
-   när clip-pathen sveper från vänster till höger. Ingen separat
-   animation behövs. */
-.cinematic-reveal::after {
-  content: "";
-  display: inline-block;
-  width: 0.16em;
-  height: 0.16em;
-  margin-left: 0.08em;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--p1), var(--p2));
-  vertical-align: 0.10em;
+/* Cinematic dot: vanligt period-tecken inne i cinematic-reveal.
+   Eftersom dotten är en del av samma text-flow och har samma
+   gradient-text-styling som "för varandra", klipps den naturligt
+   av samma clip-path. Inline-display garanterar att den aldrig
+   wrappar till en ny rad. */
+.cinematic-dot {
+  display: inline;
 }
 
 /* ── Arvsfonden badge ──────────────────────────────────────── */
